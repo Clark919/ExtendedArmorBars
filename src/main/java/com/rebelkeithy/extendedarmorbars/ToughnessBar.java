@@ -22,7 +22,7 @@ public class ToughnessBar implements ModInitializer {
 	public static Config config;
 	public static StatusBarRenderer armorBar;
 	public static StatusBarRenderer toughnessBar;
-	public static int armorYValue = 0;
+	public static int armorYValue = 00;
 
 	@Override
 	public void onInitialize() {
@@ -57,7 +57,7 @@ public class ToughnessBar implements ModInitializer {
 			}
 
 			if(config.isToughnessEnable()) {
-				int x = scaledWidth / 2 + 91 - 8 * 10 - 1;
+				int x = scaledWidth / 2 - 91;
 				int y = scaledHeight + getToughnessYOffset(player);
 				int value = (int) player.getAttributeValue(EntityAttributes.GENERIC_ARMOR_TOUGHNESS);
 				toughnessBar.render(matrices, x, y, value);
@@ -79,12 +79,15 @@ public class ToughnessBar implements ModInitializer {
 	}
 
 	private static int getToughnessYOffset(ClientPlayerEntity player) {
-		int y = -49;
-		int z = player.getMaxAir();
-		int aa = Math.min(player.getAir(), z);
-		if (player.isSubmergedIn(FluidTags.WATER) || aa < z) {
-			y -= 10;
+		int health = MathHelper.ceil(player.getHealth());
+		int renderedHealth = health; //this.renderHealthValue;
+		float actualHealth = Math.max((float)player.getAttributeValue(EntityAttributes.GENERIC_MAX_HEALTH), Math.max(renderedHealth, health));
+		int absorption = MathHelper.ceil(player.getAbsorptionAmount());
+		int healthBarRows = MathHelper.ceil((actualHealth + (float)absorption) / 2.0F / 10.0F);
+		if(config.isOneHealthBar()) {
+			healthBarRows = 1;
 		}
-		return y - config.getToughnessBarOffset();
+		int r = Math.max(10 - (healthBarRows - 2), 3);
+		return -49 - (healthBarRows - 1) * r - 10 - config.getArmorBarOffset();
 	}
 }

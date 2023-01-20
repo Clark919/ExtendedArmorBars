@@ -4,15 +4,16 @@
   "version": "${version}",
 
   "name": "Extended Armor Bars",
-  "description": "Adds an armor toughness bar and allows both it and the armor bar to go above 20",
+  "description": "Adds an armor toughness bar and allows both it and the armor bar to go above 20. Fork created by Clark for Origins compatibility.",
   "authors": [
     "RebelKeithy"
   ],
   "contact": {
-    "sources": "https://github.com/RebelKeithy/ExtendedArmorBars"
+    "sources": "https://github.com/Clark919/ExtendedArmorBars"
   },
   "contributors": [
-    "Tfarcenim (textures)"
+    "Tfarcenim (textures)",
+    "Clark919"
   ],
 
   "license": "MIT",
@@ -34,7 +35,7 @@
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": "1.17.x",
+    "minecraft": ">=1.17",
     "java": ">=16"
   },
   "suggests": {

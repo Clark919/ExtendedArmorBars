@@ -3,12 +3,13 @@
   "id": "extended_armor_bars",
   "version": "${version}",
 
-  "name": "Extended Armor Bars",
+  "name": "Stacked Armor & Toughness Bars",
   "description": "Adds an armor toughness bar and allows both it and the armor bar to go above 20. Fork created by Clark for Origins compatibility.",
   "authors": [
     "RebelKeithy"
   ],
   "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/fabric-stacked-armour-toughness-bars",
     "sources": "https://github.com/Clark919/ExtendedArmorBars"
   },
   "contributors": [
